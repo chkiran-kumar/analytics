@@ -1,4 +1,4 @@
 # Kiran
 Data Analyst
 
-SQLQueries For Data Analyst
+SQL Queries For Data Analyst
