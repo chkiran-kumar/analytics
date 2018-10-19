@@ -9,7 +9,7 @@ SELECT DISTINCT e2.name AS ManagerName, EmployeeName = STUFF(
 FROM Employee e1
 INNER JOIN Employee e2
 ON e1.ManagerID = e2.EmployeeID
-GO
+
 ---------------------
 Emp Name | Mgr Name
 A        | B,C
@@ -29,5 +29,6 @@ SELECT * FROM (
 SELECT Ename, DOB, City, ROW_NUMBER() over (PARTITION BY Ename, DOB, CITY ORDER BY Ename DESC) AS RowN FROM emp
 )c 
 WHERE c.RowN>1
+
 
 
