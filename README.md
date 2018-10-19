@@ -2,19 +2,13 @@
 
 SQL Queries For Data Analyst
 
-#1) Manager name and list of Employees
+#1) Manager name and list of Employees in a row
 ----------------------------------------
 SELECT DISTINCT e2.name AS ManagerName, EmployeeName = STUFF(
 (Select ','+ Name from Employee X WHERE X.ManagerID = e2.EmployeeID for XML PATH ('')),1,1, '')
 FROM Employee e1
 INNER JOIN Employee e2
 ON e1.ManagerID = e2.EmployeeID
-
----------------------
-Emp Name | Mgr Name
-A        | B,C
-C        | D,E
----------------------
 
 #2) Find Latest Salary of an Employee
 ----------------------------------------------
