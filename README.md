@@ -1,4 +1,33 @@
-# Kiran
-Data Analyst
+# Kiran Kumar Cherupalli - Data Analyst
 
 SQL Queries For Data Analyst
+
+#1) Manager name and list of Employees
+----------------------------------------
+SELECT DISTINCT e2.name AS ManagerName, EmployeeName = STUFF(
+(Select ','+ Name from Employee X WHERE X.ManagerID = e2.EmployeeID for XML PATH ('')),1,1, '')
+FROM Employee e1
+INNER JOIN Employee e2
+ON e1.ManagerID = e2.EmployeeID
+GO
+---------------------
+Emp Name | Mgr Name
+A        | B,C
+C        | D,E
+---------------------
+
+#2) Find Latest Salary of an Employee
+----------------------------------------------
+SELECT * FROM (
+SELECT Ename, sal, Saldate, ROW_NUMBER() over (PARTITION BY Ename ORDER BY Saldate DESC) AS RowN FROM emp
+)c 
+WHERE c.RowN>1
+
+#3) Remove Duplicate rows in a Table
+----------------------------------------------
+SELECT * FROM (
+SELECT Ename, DOB, City, ROW_NUMBER() over (PARTITION BY Ename, DOB, CITY ORDER BY Ename DESC) AS RowN FROM emp
+)c 
+WHERE c.RowN>1
+
+
