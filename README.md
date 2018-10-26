@@ -24,9 +24,10 @@ SELECT Ename, DOB, City, ROW_NUMBER() over (PARTITION BY Ename, DOB, CITY ORDER 
 )c 
 WHERE c.RowN>1
 
-#4) Frequently used formulas in Queries to replace NULL
-
+#4) Frequently used formulas in Queries to replae NULL values
+-------------------------------------------------------------
 ISNULL: If the value is NULL then prints alternate value
+
 COALESCE: Retrieves first Non Null columns value
 
 SELECT FirstName, LastName, MiddleName, COALESCE(FirstName, LastName, MiddleName,'NO record') as [Name] from PersonalDetails
