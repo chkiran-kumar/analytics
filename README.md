@@ -30,4 +30,4 @@ WHERE c.RowN>1
  COALESCE: Retrieves first Non Null columns value
 
 SELECT FirstName, LastName, MiddleName, COALESCE(FirstName, LastName, MiddleName,'NO record') as [Name] from PersonalDetails
-SELECT FirstName, LastName, MiddleName, ISNULL(FirstName,'Update record') as [Name] from PersonalDetails
+SELECT FirstName, LastName, MiddleName, ISNULL(FirstName,'Update record') as [Name] from PersonalDetails 
